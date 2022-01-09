@@ -1,0 +1,34 @@
+//Optimal Approach
+public static void findPreSuc(Node root, Res p, Res s, int key)
+    {
+       // add your code here
+      int pred=-1;
+      int succ=-1;
+      Node temp=root;
+      while(temp!=null)
+      {
+          if(temp.data>key)
+          {
+              s.succ=temp;
+              temp=temp.left;
+          }
+          else
+          temp=temp.right;
+     }
+     temp=root;
+     while(temp!=null)
+      {
+         if(temp.data<key)
+         {
+             p.pre=temp;
+             temp= temp.right;
+         }
+         else
+         temp=temp.left;
+      }
+    }
+    /*
+    s.succ is the successor of node key
+    p.pre is the predecessor of node key
+    TC-O(height)
+    SC-O(1)
